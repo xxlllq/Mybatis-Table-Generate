@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>MyBatis Generate</title>
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<style>
+			.panel {
+				max-width: 1024px;
+				margin: 20px auto;
+				min-height: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">select table_name from information_schema.tables where table_schema='数据库名称' and table_type='base table';</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<textarea class="form-control" rows="20" id="tableNames"></textarea>
+				</div>
+				<div class="col-lg-6">
+					<textarea class="form-control" rows="20" id="generateArea"></textarea>
+				</div>
+			</div>
+			<p style="text-align: center;margin-top: 20px;"><button type="button" class="btn btn-success" id="generate">　生成　</button></p>
+
+		</div>
+
+		<script>
+			$("#generate").click(function() {
+				var teableNamesVal = $("#tableNames").val(),
+					generateText = "";
+				if(teableNamesVal) {
+					var tables = teableNamesVal.split("\n");
+					if(tables && tables.length > 0) {
+						tables.forEach(function(table) {
+							var itenText = '<table tableName="' + table + '"'+' domainObjectName="';
+							if(table) {
+								var items = table.split('_');
+								if(items) {
+									items.forEach(function(table) {
+										itenText += table.substring(0, 1).toUpperCase() + table.substring(1);
+									});
+								}
+
+								table.replace('_', '');
+							}
+							itenText += '"'+' enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>\n';
+							generateText += itenText;
+						});
+						
+						$("#generateArea").val(generateText);
+					}
+				}
+
+			});
+		</script>
+	</body>
+
+</html>
