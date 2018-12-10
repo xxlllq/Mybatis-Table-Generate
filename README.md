@@ -1,5 +1,5 @@
 # Mybatis-Table-Generate
-批量生成Mybatis-Generate中的&lt;table>&lt;/table>
+使用Js批量生成Mybatis-Generate中的&lt;table>&lt;/table>
 
 * 实际效果（数据库表名下划线分隔，其他分隔符号记得改index.html中js的table.replace('_', '');）
 <kbd>
