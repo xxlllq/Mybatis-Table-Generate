@@ -4,7 +4,7 @@
 * 实际效果（数据库表名下划线分隔，其他分隔符号记得改index.html中js的table.replace('_', '');）
 <kbd>
   <div style="border: 1px solid gainsboro;border-radius: 5px;" align="center">
-    <img width="80%" height="auto" src="https://raw.githubusercontent.com/xxlllq/Mybatis-Table-Generate/master/img/generate.png"/>
+    <img width="80%" height="auto" src="https://github.com/xxlllq/Mybatis-Table-Generate/blob/master/generate.png"/>
   </div>
 </kbd>
 
